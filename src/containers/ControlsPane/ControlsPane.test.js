@@ -12,6 +12,6 @@ describe('<ControlsPane />', () => {
   });
   it('should render the Form', () => {
     const renderedComponent = shallow(<ControlsPane dimensions={{ columns: 4, rows: 5 }} onSubmit={()=>{}} />);
-    expect(renderedComponent.html()).toContain('Generate');
+    expect(renderedComponent.find(Form).length).toBe(1);
   });
 });

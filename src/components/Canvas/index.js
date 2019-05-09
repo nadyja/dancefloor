@@ -1,17 +1,17 @@
-function getRandomColor() {
+export function getRandomColor() {
   const r = Math.random() * 255;
   const g = Math.random() * 255;
   const b = Math.random() * 255;
   return `rgb(${r}, ${g}, ${b})`;
 }
-function getTileSize(clientWidth, dimensions) {
+export function getTileSize(clientWidth, dimensions) {
   const { columns } = dimensions;
   return clientWidth/columns;
 }
-function recalculateCanvasHeight(dimensions, tileSize) {
+export function recalculateCanvasHeight(dimensions, tileSize) {
   return tileSize * dimensions.rows;
 }
-function runTheLoop(ctx, dimensions, tileSize) {
+export function runTheLoop(ctx, dimensions, tileSize) {
   const { rows, columns } = dimensions;
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < columns; j++) {
