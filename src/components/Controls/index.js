@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './styles.css';
+import Input from './Input';
+import './styles.scss';
 class Controls extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -18,9 +19,9 @@ class Controls extends React.PureComponent {
   render() {
     return (
       <div className="controls">
-        <input name="columns" value={this.state.columns} onChange={this.handleChange} placeholder="Set column quantity" />
-        <input name="rows" value={this.state.rows} onChange={this.handleChange} placeholder="Set row quantity" />
-        <button onClick={this.handleSubmit}>Generate</button>
+        <Input name="columns" value={this.state.columns} onChange={this.handleChange} />
+        <Input name="rows" value={this.state.rows} onChange={this.handleChange} />
+        <button className="controls__input controls__input--button" onClick={this.handleSubmit}>Generate</button>
       </div>
     );
   }
