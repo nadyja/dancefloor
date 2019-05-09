@@ -1,34 +1,32 @@
 .controls {
   padding: 20px 0;
   display: flex;
-  &__input {
+  .input, .button {
     padding: 10px;
     text-align: center;
     background: #fff;
     border: 1px solid #ccc;
-    &--text {
-      margin-right: 10px;
-      flex: 1 1 auto;
-    }
-    &--button {
-      flex: 0 0 150px;
-      cursor: pointer;
-    }
+  }
+  .input {
+    margin-right: 10px;
+    flex: 1 1 auto;
+  }
+  .button {
+    flex: 0 0 150px;
+    cursor: pointer;
   }
 }
 @media only screen and (max-width: 1000px) {
   .controls {
     flex-direction: column;
     padding: 20px 10px;
-    &__input {
-      &--text {
-        margin-right: 0px;
-        margin-bottom: 10px;
-        flex: 1 1 auto;
-      }
-      &--button {
-        flex: 1 1 auto;
-      }
+    .input {
+      margin-right: 0px;
+      margin-bottom: 10px;
+      flex: 1 1 auto;
+    }
+    .button {
+      flex: 1 1 auto;
     }
   }
 }

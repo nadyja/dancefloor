@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function Input({ name, value, onChange }) {
   return (
     <input
-      className="controls__input controls__input--text"
+      className="input"
       name={name} 
       type="number" 
       value={value} 

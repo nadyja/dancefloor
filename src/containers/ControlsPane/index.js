@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Form from '../../components/Form'
+import Form from '../../components/Form';
+
 class ControlsPane extends React.PureComponent {
   constructor(props) {
     super(props);

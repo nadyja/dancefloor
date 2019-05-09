@@ -14,7 +14,9 @@ function Form({ dimensions, handleChange, handleSubmit }) {
  );
 }
 Form.propTypes = {
-
+  dimensions: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired, 
 }
 
 export default Form;
