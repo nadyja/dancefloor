@@ -16,3 +16,19 @@
     }
   }
 }
+@media only screen and (max-width: 1000px) {
+  .controls {
+    flex-direction: column;
+    padding: 20px 10px;
+    &__input {
+      &--text {
+        margin-right: 0px;
+        margin-bottom: 10px;
+        flex: 1 1 auto;
+      }
+      &--button {
+        flex: 1 1 auto;
+      }
+    }
+  }
+}

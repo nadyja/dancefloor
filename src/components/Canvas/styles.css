@@ -2,3 +2,8 @@
   
   height: auto;
 }
+@media only screen and (max-width: 1000px) {
+  .canvas {
+    max-width: 100%;
+  }
+}
