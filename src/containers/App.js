@@ -1,7 +1,7 @@
 import React from 'react';
 import Loadable from '../components/Loadable';
-import Controls from '../components/Controls';
-import Canvas from '../components/Canvas';
+import ControlsPane from '../containers/ControlsPane';
+import CanvasPane from '../containers/CanvasPane';
 import defaultConfig from './defaultConfig.json';
 import './App.css';
 
@@ -31,8 +31,8 @@ class App extends React.PureComponent {
     return (
       <div className="wrapper">
         <Loadable loading={loading}>
-          <Controls dimensions={dimensions} onSubmit={this.setCanvasSize} />
-          <Canvas dimensions={dimensions} />
+          <ControlsPane dimensions={dimensions} onSubmit={this.setCanvasSize} />
+          <CanvasPane dimensions={dimensions} />
         </Loadable>
       </div>
     );

@@ -10,6 +10,7 @@ function Input({ name, value, onChange }) {
       value={value} 
       onChange={onChange} 
       placeholder={`Set ${name} quantity`}
+      onFocus={(event) => event.target.select()}
     /> 
   );
 }
