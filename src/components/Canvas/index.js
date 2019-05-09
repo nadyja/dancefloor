@@ -6,7 +6,6 @@ export function getRandomColor() {
 }
 
 export function getSize(ctx, dimensions) {
-  console.log(ctx.canvas.clientWidth);
   const { columns } = dimensions;
   return ctx.canvas.clientWidth/columns;
 }

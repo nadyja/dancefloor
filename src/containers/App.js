@@ -13,14 +13,17 @@ class App extends React.PureComponent {
       rows: 0,
     }
   };
-  setCanvasSize = (dimensions) => {
+  redrawCanvas = (dimensions) => {
     this.setState({ dimensions });
+    this.forceUpdate();
   }
   asyncLoadInitialConfig = () => {
     this.setState({ loading: true })
     setTimeout(() => {
-      this.setCanvasSize(defaultConfig);
-      this.setState({ loading: false });
+      this.setState({
+        loading: false,
+        dimensions: defaultConfig,
+      });
     }, 1000);
   }
   componentDidMount() {
@@ -31,7 +34,7 @@ class App extends React.PureComponent {
     return (
       <div className="wrapper">
         <Loadable loading={loading}>
-          <ControlsPane dimensions={dimensions} onSubmit={this.setCanvasSize} />
+          <ControlsPane dimensions={dimensions} onSubmit={this.redrawCanvas} />
           <CanvasPane dimensions={dimensions} />
         </Loadable>
       </div>

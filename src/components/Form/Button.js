@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function Button({ onSubmit }) {
   return (
     <button 
-      className="controls__input controls__input--button" 
+      className="button" 
       onClick={onSubmit}
     > Generate</button>
   );
