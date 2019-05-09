@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Loader from './Loader';
+import { BarLoader } from 'react-spinners';
 
 function Loadable({ loading, children }) {
   if (loading) {
-    return <Loader />;
+    return <BarLoader width={250} height={6} css={{ margin: '50px auto' }} />;
   }
   return children;
 }
