@@ -13,6 +13,7 @@ class App extends React.PureComponent {
       rows: 0,
     }
   };
+
   redrawCanvas = (dimensions) => {
     this.setState({ dimensions });
     this.forceUpdate();
@@ -26,6 +27,7 @@ class App extends React.PureComponent {
       });
     }, 1000);
   }
+
   componentDidMount() {
     this.asyncLoadInitialConfig();
   }
