@@ -8,31 +8,31 @@ import './App.css';
 class App extends React.PureComponent {
   state = {
     loading: false,
-    columns: 0,
-    rows: 0,
+    dimensions: {
+      columns: 0,
+      rows: 0,
+    }
   };
-  initialConfigSuccess = (config) => {
-    this.setState({
-      loading: false,
-      ...config,
-    });
+  setCanvasSize = (dimensions) => {
+    this.setState({ dimensions });
   }
   asyncLoadInitialConfig = () => {
-    this.setState({
-      loading: true,
-    })
-    setTimeout(() => this.initialConfigSuccess(defaultConfig), 1000);
+    this.setState({ loading: true })
+    setTimeout(() => {
+      this.setCanvasSize(defaultConfig);
+      this.setState({ loading: false });
+    }, 1000);
   }
   componentDidMount() {
     this.asyncLoadInitialConfig();
   }
   render() {
-    const { columns, rows, loading } = this.state;
+    const { dimensions, loading } = this.state;
     return (
       <div className="wrapper">
         <Loadable loading={loading}>
-          <Controls />
-          <Canvas columns={columns} rows={rows} />
+          <Controls dimensions={dimensions} onSubmit={this.setCanvasSize} />
+          <Canvas dimensions={dimensions} />
         </Loadable>
       </div>
     );

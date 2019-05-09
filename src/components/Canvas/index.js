@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import helpers from './helpers';
-import styles from './styles.css';
+import './styles.css';
 
 class Canvas extends React.Component {
   getRandomColor(i, j) {
     return `rgb(${i * 15}, ${j * 5}, ${(i+j) * 50})`
   }
-  renderBlocks(ctx, rows, columns, size) {
+  renderBlocks(ctx, dimensions, size) {
+    const { rows, columns } = dimensions
     for (let i = 0; i < rows; i++) {
       for (let j = 0; j < columns; j++) {
         ctx.fillStyle = helpers.getRandomColor(i, j);
@@ -15,12 +16,21 @@ class Canvas extends React.Component {
       }
     }
   }
-  componentDidMount() {
-    const { columns, rows } = this.props;
+  renderCanvas() {
+    const { dimensions } = this.props;
     const canvas = this.refs.canvas;
     const ctx = canvas.getContext("2d");
-    const size = helpers.getSize(ctx, columns, rows);
-    this.renderBlocks(ctx, rows, columns, size);
+    this.renderBlocks(
+      ctx, 
+      dimensions, 
+      helpers.getSize(ctx, dimensions)
+    );
+  }
+  componentDidUpdate() {
+    this.renderCanvas();
+  }
+  componentDidMount() {
+    this.renderCanvas();
   }
   render() {
     return (
@@ -29,7 +39,6 @@ class Canvas extends React.Component {
   }
 }
 Canvas.propTypes = {
-  columns: PropTypes.number.isRequired,
-  rows: PropTypes.number.isRequired,
+  dimensions: PropTypes.object.isRequired,
 }
 export default Canvas;
